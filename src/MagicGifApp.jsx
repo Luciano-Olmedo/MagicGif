@@ -2,23 +2,15 @@ import React,{useState} from 'react'
 import AddCategory from './components/AddCategory'
 
 const MagicGifApp = () => {
-
-  const [categories, setCategories] = useState(['One Punch','Dragon Ball'])
-  
-  const onAddCategory = ()=>{
-    setCategories([ ...categories, "nuevo item"]
-     
+  const [categories, setCategories] = useState(['One Punch','Dragon Ball'])  
+  const onAddCategory = ({setCategories})=>{
+    setCategories([ ...categories, "nuevo item"]     
     )
   }
   return (
   <>
-  {/*titulo */}
-
     <h1>MagicgifApp</h1>
-
-    {/*input */}
-    <AddCategory/>
-     {/*Listado de gifs */}
+    <AddCategory setCategories={setCategories}/>    
      <button onClick={onAddCategory}>Agregar</button>
      <ol>
         {
@@ -28,7 +20,7 @@ const MagicGifApp = () => {
         }
      </ol>
 
-      {/*items  gifs */}
+      
 
   
   </>
