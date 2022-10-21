@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 
-const AddCategory = () => {
+const AddCategory = ({setCategories}) => {
     //Estado de los input
     const [inputValue, setInputValue] = useState("")
 
@@ -12,7 +12,10 @@ const AddCategory = () => {
     //Deteniendo el refresh de la pagina y enviando los nuevos estados de los inputs
     const onSubmit =(e)=>{
         e.preventDefault()
-        console.log(inputValue)
+        //el metodo trim borra los espacios delante y detras del input
+        if(inputValue.trim().length <= 1)return;
+        setCategories(categories =>[...categories,inputValue])
+        setInputValue("")      
     }
     return (
         <>
