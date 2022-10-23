@@ -1,8 +1,10 @@
-const GifGrid = ({category}) => {
+import getGifs from "./FetchApi/GetGifs"
+
+const GifGrid = ({ category }) => {
+  getGifs(category)
   return (
     <>
-       <h3>{category}</h3>
-            
+      <h3>{category}</h3>
     </>
   )
 }
