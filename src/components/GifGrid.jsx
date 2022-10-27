@@ -1,5 +1,6 @@
 import getGifs from "./FetchApi/GetGifs"
 import { useEffect, useState } from "react"
+import GifItem from "./GifItem"
 
 const GifGrid = ({ category }) => {
 
@@ -15,18 +16,21 @@ const GifGrid = ({ category }) => {
   }, [])
   return (
     // las llaves del map dentro de (({ id,title})) es una desustructuracion de images
-    <>    
+    <div >
+      <h3 className="h3">{category}</h3>
       <ol>
         {
-          images.map(({ id, title }) => (
-            <li key={id}>{title}</li>
-            
+          images.map((image) => (
+            <GifItem
+              key={image.id}
+              {...image}
+            />
           ))
         }
       </ol>
 
-      <h3>{category}</h3>
-    </>
+
+    </div>
   )
 }
 
