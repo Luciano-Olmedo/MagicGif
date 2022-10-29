@@ -17,11 +17,11 @@ const GifGrid = ({ category }) => {
   return (
     // las llaves del map dentro de (({ id,title})) es una desustructuracion de images
     <div >
-      <h3 className="h3">{category}</h3>
+      <h3 className="title">{category}</h3>
       <ol>
         {
           images.map((image) => (
-            <GifItem
+            <GifItem 
               key={image.id}
               {...image}
             />
